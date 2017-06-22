@@ -13,10 +13,12 @@
           if(scope.v1 && scope.v2 && angular.isNumber(scope.v1) && angular.isNumber(scope.v2)) {
               if(scope.v2>scope.v1) {
                   scope.temp = ((scope.v2/scope.v1) - 1) * 100;
-                  scope.percent = scope.temp;
+                  scope.temp = scope.temp.toFixed(2);
+                  scope.percent = "+" +scope.temp;
               } else {
                   scope.temp = (scope.v2/scope.v1)  * 100;
-                  scope.percent = scope.temp;
+                  scope.temp = scope.temp.toFixed(2);
+                  scope.percent = "-" + scope.temp;
               }
           }
           
@@ -31,9 +33,12 @@
   <body ng-controller="AlphaCtrl">
     <table>
       <tr>
-        <td><input ng-model="v1" type="number" min="0" ng-change="myFunc()" type="text"/> is {{percent}}% 
-        of <input ng-model="v2" type="number" min="0" ng-change="myFunc()" type="text"/></td>
-      </tr>       
+        <td><input ng-model="v1" type="number" min="0" ng-change="myFunc()" type="text"/>  
+        to <input ng-model="v2" type="number" min="0" ng-change="myFunc()" type="text"/></td>
+      </tr>   
+      <tr>
+         is {{percent}}%
+      </tr>
     </table>
   </body>
 </html>
