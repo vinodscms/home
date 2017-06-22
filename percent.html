@@ -31,6 +31,8 @@
   <body ng-controller="AlphaCtrl">
     <table>
       <tr>
+        <input type="number" name="input" ng-model="example.value"
+           min="0" max="99"
         <td><input ng-model="v1" ng-change="myFunc()" type="text"/> is {{percent}}% 
         of <input ng-model="v2" ng-change="myFunc()" type="text"/></td>
       </tr>       
