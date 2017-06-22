@@ -8,11 +8,7 @@
     
       var myApp = angular.module('myApp', []);
       myApp.controller('myCtrl', ['$scope', '$http', '$window', function (scope, http, window){
-        scope.redirect = function(page) {
-          if(page=='callSign')    
-              window.location.href('https://vinodscms.github.io/callsign/');
-          if(page=='test')    
-              window.location.href('https://vinodscms.github.io/test/');
+        scope.redirect = function(page) {          
         };   
         
       }]);
@@ -21,10 +17,10 @@
   <body ng-controller="myCtrl">
     <table>
       <tr>
-        <td><input style="width:80px;" ng-click="redirect('callSign')" type="submit" value='Call Sign'></input></td>
+        <td><input style="width:80px;" onclick="window.location='https://vinodscms.github.io/callsign/';" type="submit" value='Call Sign'></input></td>
       </tr> 
       <tr>
-        <td><input style="width:80px;" ng-click="redirect('test')" type="submit" value='Test'></input></td>
+        <td><input style="width:80px;" onclick="window.location='https://vinodscms.github.io/callsign/';" type="submit" value='Test'></input></td>
       </tr>
     </table>
   </body>
