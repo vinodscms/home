@@ -7,12 +7,11 @@
     <script>
     
       var myApp = angular.module('myApp', []);
-      myApp.controller('myCtrl', ['$scope', '$http', function (scope, http){
-        scope.temp = 0;
-        scope.myFunc = function() {
-          scope.temp++;          
-        };
-
+      myApp.controller('myCtrl', ['$scope', '$http', '$location', function (scope, http, location){
+        scope.redirect = function(page) {
+          if(page=='callSign')    
+              location.url('../callsign/');
+        };   
         
       }]);
     </script>
@@ -20,10 +19,8 @@
   <body ng-controller="myCtrl">
     <table>
       <tr>
-        <th>Enter Name: {{temp}}</th>
-        <th><input ng-click="myFunc()" type="submit"/></th>
+        <td><input ng-click="redirect('callSign')" type="submit">Call Sign</input></td>
       </tr>       
     </table>
-    {{callSign}}
   </body>
 </html>
