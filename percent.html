@@ -1,0 +1,40 @@
+<html ng-app="alphaApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Percent calculator</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+    
+      var alphaApp = angular.module('alphaApp', []);
+      alphaApp.controller('AlphaCtrl', ['$scope',  function (scope){
+        scope.percent = "0.0";
+        scope.myFunc = function() {
+          scope.temp = 0.0;
+          if(v1 && v2 && !isNaN(scope.v1) && !isNaN(scope.v2)) {
+              if(v2>v1) {
+                  scope.temp = ((v2/v1) - 1) * 100;
+                  scope.percent = scope.temp;
+              } else {
+                  scope.temp = (v2/v1)  * 100;
+                  scope.percent = scope.temp;
+              }
+          }
+          
+        };
+        scope.display=function(){
+          scope.callSign = scope.temp;
+        }
+        
+      }]);
+    </script>
+  </head>
+  <body ng-controller="AlphaCtrl">
+    <table>
+      <tr>
+        <td><input ng-model="v1" ng-change="myFunc()" type="text"/> is {{percent}}% 
+        of <input ng-model="v2" ng-change="myFunc()" type="text"/></td>
+      </tr>       
+    </table>
+    {{callSign}}
+  </body>
+</html>
