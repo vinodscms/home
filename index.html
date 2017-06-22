@@ -10,9 +10,9 @@
       myApp.controller('myCtrl', ['$scope', '$http', '$location', function (scope, http, location){
         scope.redirect = function(page) {
           if(page=='callSign')    
-              location.href('https://vinodscms.github.io/callsign/');
+              window.location.href('https://vinodscms.github.io/callsign/');
           if(page=='test')    
-              location.href('https://vinodscms.github.io/test/');
+              window.location.href('https://vinodscms.github.io/test/');
         };   
         
       }]);
