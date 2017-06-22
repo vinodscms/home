@@ -10,12 +10,12 @@
         scope.percent = "0.0";
         scope.myFunc = function() {
           scope.temp = 0.0;
-          if(v1 && v2 && !isNaN(scope.v1) && !isNaN(scope.v2)) {
-              if(v2>v1) {
-                  scope.temp = ((v2/v1) - 1) * 100;
+          if(scope.v1 && scope.v2 && angular.isNumber(scope.v1) && angular.isNumber(scope.v2)) {
+              if(scope.v2>scope.v1) {
+                  scope.temp = ((scope.v2/scope.v1) - 1) * 100;
                   scope.percent = scope.temp;
               } else {
-                  scope.temp = (v2/v1)  * 100;
+                  scope.temp = (scope.v2/scope.v1)  * 100;
                   scope.percent = scope.temp;
               }
           }
