@@ -10,9 +10,9 @@
       myApp.controller('myCtrl', ['$scope', '$http', '$location', function (scope, http, location){
         scope.redirect = function(page) {
           if(page=='callSign')    
-              location.url('https://vinodscms.github.io/callsign/');
+              location.href('https://vinodscms.github.io/callsign/');
           if(page=='test')    
-              location.url('https://vinodscms.github.io/test/');
+              location.href('https://vinodscms.github.io/test/');
         };   
         
       }]);
@@ -21,10 +21,10 @@
   <body ng-controller="myCtrl">
     <table>
       <tr>
-        <td><input ng-click="redirect('callSign')" type="submit" value='Call Sign'></input></td>
+        <td><input style="width:80px;" ng-click="redirect('callSign')" type="submit" value='Call Sign'></input></td>
       </tr> 
       <tr>
-        <td><input ng-click="redirect('test')" type="submit" value='Test'></input></td>
+        <td><input style="width:80px;" ng-click="redirect('test')" type="submit" value='Test'></input></td>
       </tr>
     </table>
   </body>
