@@ -27,11 +27,17 @@
         
         scope.percent2 = "0.0";
         scope.myFunc2 = function() {
-          scope.temp2 = 0.0;
           if(scope.v3 && scope.v4 && angular.isNumber(scope.v3) && angular.isNumber(scope.v4)) {
               scope.percent2 = (scope.v3/scope.v4*100).toFixed(2);              
-          }
-          
+          }          
+        };
+        
+        scope.percent3 = "0.0";
+        scope.myFunc3 = function() {
+          scope.temp3 = 0.0;
+          if(scope.v5 && scope.v6 && angular.isNumber(scope.v5) && angular.isNumber(scope.v6)) {
+              scope.percent3 = (scope.v6/100*scope.v5).toFixed(2);              
+          }          
         };
         
         
@@ -54,6 +60,12 @@
       <tr>
         <td><input style="color:blue;width:80px;" ng-model="v3" type="number" min="0" ng-change="myFunc2()" type="text"/>  
           is <span style="color:blue;">{{percent2}}%</span> of <input style="color:blue;width:80px;" ng-model="v4" type="number" min="0" ng-change="myFunc2()" type="text"/></td>
+      </tr> 
+      
+      <tr>
+        <td><input style="color:blue;width:80px;" ng-model="v5" type="number" min="0" ng-change="myFunc3()" type="text"/>% of  
+          <input style="color:blue;width:80px;" ng-model="v6" type="number" min="0" ng-change="myFunc3()" type="text"/>
+          &nbsp; is&nbsp;<span style="color:blue;">{{percent3}}</span></td>
       </tr>   
       
     </table>
