@@ -22,19 +22,25 @@
                   scope.temp = scope.temp.toFixed(2);
                   scope.percent = "-" + scope.temp;
               }
+          }          
+        };
+        
+        scope.percent2 = "0.0";
+        scope.myFunc2 = function() {
+          scope.temp2 = 0.0;
+          if(scope.v3 && scope.v4 && angular.isNumber(scope.v3) && angular.isNumber(scope.v4)) {
+              scope.percent2 = (scope.v3/scope.v4*100).toFixed(2);              
           }
           
         };
-        scope.display=function(){
-          scope.callSign = scope.temp;
-        }
+        
         
       }]);
     </script>
   </head>
   <body ng-controller="AlphaCtrl">
     <table>
-      <tr>
+      <tr style="border:1px solid black">
         <td><input style="color:blue;width:80px;" ng-model="v1" type="number" min="0" ng-change="myFunc()" type="text"/>  
         to <input style="color:blue;width:80px;" ng-model="v2" type="number" min="0" ng-change="myFunc()" type="text"/></td>
       </tr>   
@@ -43,6 +49,12 @@
           <h3>is {{percent}} % change</h3>
         </td>
       </tr>
+      
+      <tr>
+        <td><input style="color:blue;width:80px;" ng-model="v3" type="number" min="0" ng-change="myFunc2()" type="text"/>  
+        is {{percent2}} percent of <input style="color:blue;width:80px;" ng-model="v4" type="number" min="0" ng-change="myFunc2()" type="text"/></td>
+      </tr>   
+      
     </table>
   </body>
 </html>
