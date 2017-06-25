@@ -39,7 +39,7 @@
     </script>
     <style>
       table, th, td {
-        border: 1px solid black;
+        border: 1px solid black; width:400px;
       }
     </style>
   </head>
@@ -48,12 +48,12 @@
       <tr>
         <td><input style="color:blue;width:80px;" ng-model="v1" type="number" min="0" ng-change="myFunc()" type="text"/>  
         to <input style="color:blue;width:80px;" ng-model="v2" type="number" min="0" ng-change="myFunc()" type="text"/>
-        &nbsp;is <h3>{{percent}}% </h3>change </td>
+        &nbsp;is <span style="color:blue;">{{percent}}% </span>change </td>
       </tr>   
      
       <tr>
         <td><input style="color:blue;width:80px;" ng-model="v3" type="number" min="0" ng-change="myFunc2()" type="text"/>  
-          is <h3>{{percent2}}%</h3> of <input style="color:blue;width:80px;" ng-model="v4" type="number" min="0" ng-change="myFunc2()" type="text"/></td>
+          is <span style="color:blue;">{{percent2}}%</span> of <input style="color:blue;width:80px;" ng-model="v4" type="number" min="0" ng-change="myFunc2()" type="text"/></td>
       </tr>   
       
     </table>
