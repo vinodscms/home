@@ -41,7 +41,7 @@ section, footer, header, aside, nav{
 
 nav{
 	display:inline-block;
-	margin:60px auto 45px;
+	margin:6px auto 4.5px;
 	background-color:#55B460;
 	box-shadow:0 1px 1px #ccc;
 	border-radius:2px;
