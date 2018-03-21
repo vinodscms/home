@@ -25,9 +25,9 @@
 		    } else {
 		        x.innerHTML = "Geolocation is not supported by this browser.";
 		    }
-		    var deferred = $q.defer();
+		var deferred = q.defer();
 
-		$http.get('http://ip-api.com/json')
+		http.get('http://ip-api.com/json')
 			.success(function(coordinates) {
 				scope.myCoordinates = {};
 				scope.myCoordinates.lat = coordinates.lat;
