@@ -2,15 +2,50 @@
   <head>
     <meta charset="utf-8">
     <title>Home page</title>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
-    <link href="style.css" rel="stylesheet" />
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+	<link href="style.css" rel="stylesheet" />
+	<script src="map.js"></script>
+	<style>
+		.angular-google-map {
+				display: block;
+			}
+	</style>
     <script>
-    
-      var myApp = angular.module('myApp', []);
+
+      var myApp = angular.module('myApp', ["google-maps"]);
       myApp.controller('myCtrl', ['$scope', '$http', '$window', function (scope, http, window){
-        scope.redirect = function(page) {          
-        };   
-        
+        scope.redirect = function(page) {
+        };
+
+        var x = document.getElementById("demo");
+		scope.getLocation = function() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(scope.showPosition);
+		    } else {
+		        x.innerHTML = "Geolocation is not supported by this browser.";
+		    }
+		}
+		scope.showPosition = function(position) {
+		    scope.latlon = "Current Location: " + position.coords.latitude + " , " + position.coords.longitude;
+		    scope.lat1 = position.coords.latitude;
+		    scope.long1 = position.coords.longitude;
+		}
+		scope.getLocation();
+
+		angular.extend(scope, {
+					centerProperty: {
+						lat: 42.0773907,
+						lng: -88.2153029
+					},
+					zoomProperty: 8,
+					markersProperty: [ {
+							latitude: 42.0773907,
+							longitude: -88.2153029
+						}],
+					clickedLatitudeProperty: null,
+					clickedLongitudeProperty: null,
+		});
       }]);
     </script>
   </head>
@@ -18,14 +53,30 @@
     <!--<table>
       <tr>
         <td><input style="width:80px;" onclick="window.location='https://vinodscms.github.io/callsign/';" type="submit" value='Call Sign'></input></td>
-      </tr> 
+      </tr>
       <tr>
         <td><input style="width:80px;" onclick="window.location='https://vinodscms.github.io/home/percent.html';" type="submit" value='Percentage'></input></td>
       </tr>
     </table> -->
     <nav class="{{active}}">
-	<a href="https://vinodscms.github.io/callsign/" class="callsign">Call Sign</a>
-	<a href="https://vinodscms.github.io/home/percent.html" class="percent">Percentage</a>
+		<a href="https://vinodscms.github.io/callsign/" class="callsign">Call Sign</a>
+		<a href="https://vinodscms.github.io/home/percent.html" class="percent">Percentage</a>
+		<a href="javascript:void(0);" ng-click="show = !show" class="location">Location</a>
     </nav>
+    <div id="demo"></div>
+    <div id="mapholder" ng-show="show">
+		{{latlon}}
+		<br/>
+		<google-map
+			center="centerProperty"
+			zoom="zoomProperty"
+			markers="markersProperty"
+			latitude="clickedLatitudeProperty"
+			longitude="clickedLongitudeProperty"
+			mark-click="true"
+			draggable="true"
+			style="height: 450px; width: 100%">
+		</google-map>
+	</div>
   </body>
 </html>
