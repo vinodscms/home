@@ -1,5 +1,15 @@
+How to Un-tar in Windows using 7zip
+  1. 7z x filename.tar.gz
+  2. 7z x filename.tar
 
+UNIX sample commands
+  df -h /appl/
+  du -sk
+  df -k
+  du -maxS /appl/ | sort -rn | head -20
+  echo $(date +%s)
+  find . -name "*.log" | xargs grep "249204645"
+  curl -vX  POST -k -H 'Content-Type: application/xml' -i 'https://hi.com/WNLILaaSRequest' --data '<LaaSRequest>'
 
-How to Un-tar in Windows
-1. 7z x filename.tar.gz
-2. 7z x filename.tar
+Mongo query
+  db.getCollection('audit_log').find({orderId:869583833, timestamp: {$gt: ISODate("2018-04-01T00:42:35.469Z")}}).sort({"timestamp": 1});
