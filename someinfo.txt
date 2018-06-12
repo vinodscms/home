@@ -1,0 +1,5 @@
+
+
+How to Un-tar in Windows
+1. 7z x filename.tar.gz
+2. 7z x filename.tar
