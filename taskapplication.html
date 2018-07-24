@@ -1,0 +1,56 @@
+  
+  <html ng-app="alphaApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Task Application</title>
+    
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+	<script src="https://github.com/indrimuska/angular-moment-picker/blob/master/dist/angular-moment-picker.js"></script>
+	<link href="https://github.com/indrimuska/angular-moment-picker/blob/master/dist/angular-moment-picker.min.css" rel="stylesheet">
+	
+	  <script>
+    
+      var alphaApp = angular.module('alphaApp', ['moment-picker']);
+      alphaApp.controller('AlphaCtrl', ['$scope',  function (scope){
+                
+        
+        
+      }]);
+    </script>
+    <style>
+      td {
+        border: 1px solid black; 
+        width:400px; 
+        padding:15px;
+      }
+      tr:nth-child(even){background-color: #f2f2f2}
+    </style>
+  </head>
+  <body ng-controller="AlphaCtrl as ctrl">
+    <table style="width:400px;">
+      <tr>
+        <td>
+			<div class="input-group"
+				 moment-picker="ctrl.datepicker"
+				 format="YYYY-MM-DD">
+				<span class="input-group-addon">
+					<i class="octicon octicon-calendar"></i>
+				</span>
+				<input class="form-control"
+					   placeholder="Select a date"
+				   ng-model="ctrl.datepicker"
+				   ng-model-options="{ updateOn: 'blur' }">
+			</div>
+		
+		</td>
+      </tr>   
+     
+      
+    </table>
+	
+	
+	
+	{{ctrl.datepicker}}
+  </body>
+</html>
