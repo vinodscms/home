@@ -41,20 +41,32 @@
           }          
         };
         
+        scope.ratio = function(v) {
+          if(v=='v9'){
+            if(scope.v9 && angular.isNumber(scope.v9) ) {
+              scope.v10 = (scope.v8/scope.v7)*scope.v9.toFixed(2);
+            }
+          } else {
+            if(scope.v10 && angular.isNumber(scope.v10) ) {
+              scope.v9 = scope.v10/(scope.v8/scope.v7).toFixed(2);
+            }
+          }
+        };
+        
         
       }]);
     </script>
     <style>
       td {
         border: 1px solid black; 
-        width:400px; 
+        width:450px; 
         padding:15px;
       }
       tr:nth-child(even){background-color: #f2f2f2}
     </style>
   </head>
   <body ng-controller="AlphaCtrl">
-    <table style="width:400px;">
+    <table style="width:450px;">
       <tr>
         <td><input style="color:blue;width:80px;" ng-model="v1" type="number" min="0" ng-change="myFunc()" type="text"/>  
         to <input style="color:blue;width:80px;" ng-model="v2" type="number" min="0" ng-change="myFunc()" type="text"/>
@@ -71,6 +83,16 @@
           <input style="color:blue;width:80px;" ng-model="v6" type="number" min="0" ng-change="myFunc3()" type="text"/>
           &nbsp; is&nbsp;<span style="color:blue;">{{percent3}}</span></td>
       </tr>   
+      
+      <tr>
+        <td>
+          <input style="color:blue;width:80px;" ng-model="v7" type="number" min="0" type="text"/><b>:</b>
+          <input style="color:blue;width:80px;" ng-model="v8" type="number" min="0" type="text"/>
+          &nbsp; <b>=</b> &nbsp;
+          <input style="color:blue;width:80px;" ng-model="v9" type="number" min="0" ng-change="ratio('v9')" type="text"/><b>:</b>
+          <input style="color:blue;width:80px;" ng-model="v10" type="number" min="0" ng-change="ratio('v10')" type="text"/>
+        </td>
+      </tr>  
       
     </table>
   </body>
